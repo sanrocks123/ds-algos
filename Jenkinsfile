@@ -9,7 +9,7 @@ pipeline{
   agent any
 
   environment{
-  		gradle = '/opt/gradle-4.4.1/bin/gradle'
+  		gradle = './gradlew'
   }	 	 	    
 
   stages{
