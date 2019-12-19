@@ -2,7 +2,7 @@
  * Copyright (c) 2019 @SanRockzz Ltd. All Rights Reserved.
  */
 
-package designpatterns;
+package oops;
 
 /**
  * Java Source OverloadingOverridingClass.java created on Dec 2, 2019
