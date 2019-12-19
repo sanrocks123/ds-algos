@@ -1,4 +1,4 @@
-package oops.principles;
+package oops;
 
 /**
  *
