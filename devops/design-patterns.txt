@@ -1,0 +1,29 @@
+
+Design Patterns
+
+SOLID Principles 
+
+Creational Patterns
+
+Singleton,
+Factory
+AbstractFactory
+Builder
+
+
+Structural Patterns
+
+Flywieght,
+Template,
+Facade,
+Proxy
+Adapter
+Bridge
+
+
+Behavioural Patterns
+
+Chain Of Responsibility
+Observer
+Visitor
+Iterator

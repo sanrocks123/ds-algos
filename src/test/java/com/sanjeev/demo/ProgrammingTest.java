@@ -1,26 +1,70 @@
 /**
- * Copyright (c) @Sanjeev Saxena 2017. All Rights Reserved.
+ * Copyright (c) 2019 @SanRockzz Ltd. All Rights Reserved.
  */
 
 package com.sanjeev.demo;
 
 import java.text.MessageFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
 import org.junit.Ignore;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
- * Source SampleTests.java created on Jan 28, 2018
+ * Java Source ProgrammingTest.java created on Dec 19, 2019
  *
  * @author : Sanjeev Saxena
  * @email : sanrocks123@gmail.com
  * @version : 1.0
  */
 
-public class SampleTests {
+public class ProgrammingTest {
+
+    private final Logger log = LoggerFactory.getLogger(getClass());
+
+    @Test
+    public void testCharOccurenceCount() {
+        final String str = "abcaaebcc";
+        final String a[] = new String[str.length()];
+
+        String unique = new String();
+        for (int i = 0; i < str.length(); i++) {
+            final String currentChar = Character.valueOf(str.charAt(i)).toString();
+            if (!unique.contains(currentChar)) {
+                unique = unique + currentChar;
+            }
+        }
+
+        log.info("unique chars, i/p {}, o/p {}", str, unique);
+        a[0] = unique;
+
+        for (int i = 1; i < str.length(); i++) {
+            a[i] = "";
+        }
+
+        for (int i = 0; i < str.length(); i++) {
+            final String currentChar = Character.valueOf(str.charAt(i)).toString();
+            log.info("currentChar {}", currentChar);
+            for (int j = 0; j < a.length; j++) {
+                if (a[j].contains(currentChar)) {
+                    final String temp = a[j].replace(currentChar, "");
+                    log.info("match found in array, removed current char {}, o/p {}", currentChar, temp);
+                    a[j] = temp;
+                    a[j + 1] = a[j + 1] + currentChar;
+
+                    log.info("current array {}", Arrays.asList(a));
+                    break;
+                }
+            }
+        }
+
+        log.info("result {}", Arrays.asList(a));
+    }
 
     @Ignore
     @Test
@@ -59,7 +103,7 @@ public class SampleTests {
 
     @Ignore
     @Test
-    public void testLog() {
+    public void testSweetness() {
         // Scanner
         final Scanner s = new Scanner(System.in);
         final int totalNums = Integer.valueOf(s.nextLine());
@@ -86,15 +130,4 @@ public class SampleTests {
         }
         s.close();
     }
-
-    @Test
-    public void testSample() {
-        final Integer a = new Integer(2);
-        final long b = 2000300040005000L;
-        System.out.println(a == b);
-
-        final int c = (int) b;
-        System.out.println(c);
-    }
-
 }

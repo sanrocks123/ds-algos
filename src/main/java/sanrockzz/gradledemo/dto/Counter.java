@@ -16,6 +16,7 @@ public class Counter implements Serializable {
 
     volatile int x = 1;
     int y = 2;
+    double doub = 123_456.0;
 
     public Counter copy() {
         try {

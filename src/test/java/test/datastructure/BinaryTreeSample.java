@@ -2,7 +2,7 @@
  * Copyright (c) @Sanjeev Saxena 2017. All Rights Reserved.
  */
 
-package com.sanjeev.demo;
+package test.datastructure;
 
 import org.junit.Test;
 import org.slf4j.Logger;

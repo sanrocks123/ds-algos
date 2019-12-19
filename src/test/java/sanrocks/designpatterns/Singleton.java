@@ -18,9 +18,9 @@ import org.slf4j.LoggerFactory;
  * @version : 1.0
  */
 
-public class Singleton {
+public class Singleton implements Cloneable {
 
-    private static volatile Singleton singleton;
+    private static volatile Singleton singleton = null;
     private static final Logger log = LoggerFactory.getLogger(Singleton.class);
 
     /**
@@ -55,4 +55,8 @@ public class Singleton {
         }
     }
 
+    @Override
+    public Singleton clone() throws CloneNotSupportedException {
+        throw new CloneNotSupportedException();
+    }
 }
