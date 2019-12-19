@@ -2,7 +2,7 @@
  * Copyright (c) @Sanjeev Saxena 2017. All Rights Reserved.
  */
 
-package com.sanjeev.demo;
+package oops.principles;
 
 import java.util.Random;
 import java.util.concurrent.ArrayBlockingQueue;

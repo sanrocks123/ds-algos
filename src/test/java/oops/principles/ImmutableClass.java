@@ -1,4 +1,4 @@
-package com.sanjeev.demo;
+package oops.principles;
 
 /**
  *

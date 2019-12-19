@@ -2,7 +2,7 @@
  * Copyright (c) 2019 @SanRockzz Ltd. All Rights Reserved.
  */
 
-package test.interview.overriding;
+package polymorphism;
 
 import org.junit.Test;
 

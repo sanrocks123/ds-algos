@@ -2,7 +2,7 @@
  * Copyright (c) 2019 @SanRockzz Ltd. All Rights Reserved.
  */
 
-package test.interview.overriding;
+package polymorphism;
 
 /**
  * Java Source InterfaceA.java created on Dec 18, 2019
