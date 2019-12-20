@@ -19,7 +19,7 @@ import sanrockzz.gradledemo.exception.ContactServiceException;
 @Service
 public class HealthCheckService {
 
-    private final Logger log = LoggerFactory.getLogger(HealthCheckService.class);
+    private final Logger log = LoggerFactory.getLogger(getClass());
 
     public Map<String, Object> getHealthStatus() {
         try {

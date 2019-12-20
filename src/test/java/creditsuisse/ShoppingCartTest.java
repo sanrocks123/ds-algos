@@ -7,10 +7,6 @@ package creditsuisse;
 import org.junit.Assert;
 import org.junit.Test;
 
-import sanrockzz.creditsuisse.assignment.ItemTestDataRepositoryImpl;
-import sanrockzz.creditsuisse.assignment.ShoppingOperation;
-import sanrockzz.creditsuisse.assignment.ShoppingOperationsImpl;
-
 /**
  * Java Source OperationTest.java created on Nov 19, 2019
  *

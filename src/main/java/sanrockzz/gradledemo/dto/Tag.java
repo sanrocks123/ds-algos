@@ -2,26 +2,27 @@
  * Copyright (c) 2019 @SanRockzz Ltd. All Rights Reserved.
  */
 
-package oops;
+package sanrockzz.gradledemo.dto;
+
+import org.json.JSONObject;
 
 /**
- * Java Source OverloadingOverridingClass.java created on Dec 2, 2019
+ * Java Source Tag.java created on Dec 20, 2019
  *
  * @author : Sanjeev Saxena
  * @email : sanrocks123@gmail.com
  * @version : 1.0
  */
 
-public class OverloadingOverridingClass {
+public class Tag {
 
     private String name;
 
-    public String formatName(String name) {
-        return String.format("Helo-%s", name);
-    }
-
-    public String formatName(String name, int a) {
-        return String.format("Helo-%s", name);
+    /**
+     * @param string
+     */
+    public Tag(String name) {
+        this.name = name;
     }
 
     /**
@@ -42,8 +43,9 @@ public class OverloadingOverridingClass {
     /**
      *
      */
-    private void display() {
-        System.out.println("A");
+    @Override
+    public String toString() {
+        return new JSONObject(this).toString();
     }
 
 }

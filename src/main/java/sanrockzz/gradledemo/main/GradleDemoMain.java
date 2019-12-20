@@ -27,7 +27,6 @@ public class GradleDemoMain {
      */
     public static void main(String[] args) {
         final SpringApplication app = new SpringApplication(GradleDemoMain.class);
-        // app.setBanner(new ResourceBanner(new PathResource()));
         app.run(args);
     }
 
