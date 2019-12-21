@@ -2,7 +2,7 @@
  * Copyright (c) 2019 @SanRockzz Ltd. All Rights Reserved.
  */
 
-package polymorphism;
+package sanrockzz.polymorphism;
 
 /**
  * Java Source InterfaceB.java created on Dec 18, 2019

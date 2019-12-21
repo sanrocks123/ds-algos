@@ -2,7 +2,7 @@
  * Copyright (c) @Sanjeev Saxena 2017. All Rights Reserved.
  */
 
-package designpatterns;
+package sanrockzz.designpatterns;
 
 import java.util.Objects;
 import java.util.concurrent.TimeUnit;

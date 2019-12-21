@@ -4,6 +4,8 @@
 
 package sanrockzz.gradledemo.service;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,7 +23,7 @@ import sanrockzz.gradledemo.repositories.TaggingRepository;
 @Service
 public class TaggingServiceImpl implements TaggingService {
 
-    // private final Logger log = LoggerFactory.getLogger(getClass());
+    private final Logger log = LoggerFactory.getLogger(getClass());
 
     @Autowired
     private TaggingRepository tagRepo;
@@ -35,6 +37,7 @@ public class TaggingServiceImpl implements TaggingService {
      */
     @Override
     public Tag create(Tag tag) {
+        log.info("tagRepos hashCode: {}", tagRepo.hashCode());
         return tagRepo.create(tag);
     }
 

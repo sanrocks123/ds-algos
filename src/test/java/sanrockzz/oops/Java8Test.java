@@ -2,7 +2,7 @@
  * Copyright (c) 2019 @SanRockzz Ltd. All Rights Reserved.
  */
 
-package oops;
+package sanrockzz.oops;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -31,6 +31,7 @@ import sanrockzz.gradledemo.dto.Employee;
  */
 
 public class Java8Test {
+
     private final Logger log = LoggerFactory.getLogger(getClass());
 
     @Test

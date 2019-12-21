@@ -39,7 +39,7 @@
 	</logger>
 
 
-	<logger name="com.sanjeev" level="debug" additivity="false">
+	<logger name="sanrockzz" level="debug" additivity="false">
 		<appender-ref ref="STDOUT" />
 		<appender-ref ref="file" />
 	</logger>

@@ -2,7 +2,7 @@
  * Copyright (c) 2019 @SanRockzz Ltd. All Rights Reserved.
  */
 
-package oops;
+package sanrockzz.oops;
 
 /**
  * Java Source OverloadingClass.java created on Dec 2, 2019
