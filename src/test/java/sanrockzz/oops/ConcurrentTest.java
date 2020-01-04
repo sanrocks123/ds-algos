@@ -20,6 +20,7 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import sanrockzz.dto.OddEvenCounter;
 import sanrockzz.gradledemo.dto.Counter;
 import sanrockzz.gradledemo.dto.Employee;
 
@@ -36,6 +37,7 @@ public class ConcurrentTest {
     private final Logger log = LoggerFactory.getLogger(getClass());
 
     @Test
+    @Ignore
     public void testBlockingQueue() {
         final BlockingQueue<Employee> bQueue = new ArrayBlockingQueue<>(10);
 
@@ -75,6 +77,7 @@ public class ConcurrentTest {
     }
 
     @Test
+    @Ignore
     public void testJoin() throws InterruptedException {
 
         final Thread t1 = new Thread(() -> {
@@ -165,6 +168,7 @@ public class ConcurrentTest {
         }
     }
 
+    @Ignore
     @Test
     public void testProducerConsumer() {
         final BlockingQueue<Integer> queue = new ArrayBlockingQueue<>(5);
@@ -291,4 +295,26 @@ public class ConcurrentTest {
         }
     }
 
+    @Test
+    public void testSimpleEvenOddProducerConsumer() throws InterruptedException {
+        final OddEvenCounter number = new OddEvenCounter(1, 10);
+
+        final Thread even = new Thread(() -> {
+            while (!number.isMaxCapacityReached()) {
+                log.info("even : {}", number.printEven());
+            }
+        }, "even");
+
+        final Thread odd = new Thread(() -> {
+            while (!number.isMaxCapacityReached()) {
+                log.info("odd : {}", number.printOdd());
+            }
+        }, "odd");
+
+        even.start();
+        odd.start();
+
+        even.join();
+        odd.join();
+    }
 }

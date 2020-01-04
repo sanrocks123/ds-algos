@@ -17,7 +17,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public enum SingletonEnum {
 
-    INSTANCE;
+    INSTANCE, AA("aa");
+
     private AtomicInteger value;
 
     /**
@@ -33,6 +34,9 @@ public enum SingletonEnum {
         catch (final InterruptedException e) {
             e.printStackTrace();
         }
+    }
+
+    private SingletonEnum(String aa) {
     }
 
     /**

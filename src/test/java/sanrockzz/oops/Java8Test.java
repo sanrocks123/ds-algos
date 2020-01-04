@@ -35,6 +35,14 @@ public class Java8Test {
     private final Logger log = LoggerFactory.getLogger(getClass());
 
     @Test
+    public void testAverage() {
+        // final List<Integer> numbers = Arrays.asList(new Integer[] { 1, 2, 3,
+        // 4 });
+        // numbers.stream().map(k -> k.intValue() * 3).filter(n -> n.intValue()
+        // > 10).;
+    }
+
+    @Test
     public void testFlatMap() {
         final Map<String, List<String>> people = new HashMap<>();
         people.put("John", Arrays.asList("555-1123", "555-3389"));
@@ -50,12 +58,14 @@ public class Java8Test {
     public void testOptional() {
 
         String s1 = new String("Hello");
-        final Optional<String> sOpt = Optional.of(s1);
+        Optional<String> sOpt = Optional.of(s1);
 
         log.info("optional: {}", sOpt.get());
 
-        s1 = null;
-        log.info("optional: {}", sOpt.or("default"));
+        s1 = "";
+        sOpt = Optional.of(s1);
+
+        log.info("s1, after null reference: {}", sOpt.orNull());
     }
 
     @Test

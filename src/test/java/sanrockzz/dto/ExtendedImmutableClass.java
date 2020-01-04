@@ -1,15 +1,15 @@
-package sanrockzz.oops;
+package sanrockzz.dto;
 
 /**
  *
- * Java Source ImmutableClass.java created on Dec 19, 2019
+ * Java Source ExtendedImmutableClass.java created on Jan 4, 2020
  *
  * @author : Sanjeev Saxena
  * @email : sanrocks123@gmail.com
  * @version : 1.0
  */
 
-class ExtendedImmutableClass extends ImmutableClass {
+public class ExtendedImmutableClass extends ImmutableClass {
     int overrideId;
 
     public ExtendedImmutableClass(int id) {
@@ -37,16 +37,4 @@ class ExtendedImmutableClass extends ImmutableClass {
         this.overrideId = id;
     }
 
-}
-
-class ImmutableClass {
-    final int id;
-
-    public ImmutableClass(final int id) {
-        this.id = id;
-    }
-
-    public int getId() {
-        return this.id;
-    }
 }

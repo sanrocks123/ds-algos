@@ -15,6 +15,9 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import sanrockzz.dto.ExtendedImmutableClass;
+import sanrockzz.dto.ImmutableClass;
+import sanrockzz.dto.OddEvenCounter;
 import sanrockzz.gradledemo.dto.Counter;
 import sanrockzz.gradledemo.dto.Employee;
 
@@ -29,6 +32,14 @@ import sanrockzz.gradledemo.dto.Employee;
 public class GeneralTest {
 
     private final Logger log = LoggerFactory.getLogger(getClass());
+
+    @Test
+    public void tesGarbageCollection() {
+        OddEvenCounter oo = new OddEvenCounter(1, 5);
+        oo = null;
+        System.gc();
+        log.info("endd");
+    }
 
     @Test
     public void testASCIICode() {
@@ -75,7 +86,7 @@ public class GeneralTest {
         log.info("Good to go after Error");
     }
 
-    @Test()
+    @Test
     public void testImmutable() {
 
         ImmutableClass a = new ImmutableClass(1);
@@ -113,10 +124,10 @@ public class GeneralTest {
     public void testPriorityQueue() {
         final PriorityBlockingQueue<String> qq = new PriorityBlockingQueue<>();
 
-        qq.put("zzzz");
-        qq.put("qqq");
-        qq.put("aaa");
-        qq.put("bbb");
+        qq.put("c");
+        qq.put("a");
+        qq.put("d");
+        qq.put("b");
 
         log.info("qq {}", qq);
 
