@@ -10,6 +10,10 @@ Java Application
 8 micro-service(s) (docker container) - 8 container -> 8 VMs
 1 service - pipeline
 
+1 service -> 4 instance (4 containers)
+
+8 service x 4 = 32 (containers)
+
 camo-core-service
 
 10 developer - 10 f1
@@ -47,10 +51,9 @@ Developer -> Version Control -> Jenkins CI Server
                              
                              -> Promotion to Staging
                                     + QA manual blind addditionally
-
                         
                              -> PROD Deployment
-                                - PaaS (RedHat OpenShift, Heroku Paas platform) - all cloud providers AWS, Azure
+                                - PaaS (RedHat OpenShift, Heroku Paas platform, K8s) - all cloud providers AWS, Azure
                                 - IaaS (AWS, GCE, Azure)
                              
                              -> Slack Notification   
@@ -59,8 +62,28 @@ Post Production
 
 Alerting Monitoring Aspect - Analytics - ELK Stack
 
+Centralized aggregated logs
 
-                                                             
+ElasticSearch  - data store this (in search that you can do free text search) (json)
+LogStash       - transport agent (it runs alongside your container (main service))
+Kibana         - Visualization
+
+read-only      - 
+
+trackingId (eventId) -> which all containers this request was served
+
+eventId ->
+timeline
+all events for your searched criteria
+
+s1 , s2, s4 -- sn
+
+APM  -> Application Performance Management
+
+transform SQL -> NoSQL JSON -> elasticSearch -> READ queries fired
+
+docker  run -u root -p8080:8080 -v jenkins-data:/var/jenkins_home jenkinsci/blueocean
+
 
 
 

@@ -38,7 +38,7 @@ public class GeneralTest {
         OddEvenCounter oo = new OddEvenCounter(1, 5);
         oo = null;
         System.gc();
-        log.info("endd");
+        log.info("endd", oo);
     }
 
     @Test

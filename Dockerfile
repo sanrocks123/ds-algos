@@ -15,6 +15,7 @@ ENV LIB=lib
 
 RUN mkdir -p $SERVICE_HOME
 RUN mkdir -p $SERVICE_SCRIPTS
+RUN mkdir -p ${SERVICE_HOME}/devops
 
 WORKDIR $SERVICE_HOME
 
@@ -23,6 +24,7 @@ RUN mkdir -p $CONFIG
 
 COPY ./build/lib $SERVICE_HOME/$LIB
 COPY ./build/scripts $SERVICE_SCRIPTS
+COPY ./build/devops ${SERVICE_HOME}/devops
 
 RUN pwd
 RUN ls -lart

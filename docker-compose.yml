@@ -1,0 +1,20 @@
+
+# compose file for services
+
+version: "3"
+services:
+  
+  tagging-service:
+    image: sanrocks123/gradle-demo:latest
+    ports:
+      - 1000:1000
+  
+  jenkinsci:
+    image: jenkinsci/blueocean:latest
+    ports:
+      - 8080:8080
+    volumes:
+      - jenkins-data:/var/jenkins_home
+
+volumes:
+  jenkins-data:

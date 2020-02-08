@@ -69,5 +69,10 @@ task copyDockerFile(type: Copy) {
     	into "$buildDir"
    }
 
-build.dependsOn(copyToLib, copyDockerFile, copyJar)
+task copyDevOps(type: Copy) {
+    	from "./devops"
+    	into "$buildDir/devops"
+   }
+   
+build.dependsOn(copyToLib, copyDockerFile, copyJar, copyDevOps)
 
