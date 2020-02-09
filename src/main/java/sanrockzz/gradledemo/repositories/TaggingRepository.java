@@ -52,7 +52,6 @@ public class TaggingRepository {
             pb.redirectOutput(new File("/usr/local/gradle-app/process.output"));
 
             final Process p = pb.start();
-
             while (p.isAlive()) {
                 log.info("script still running, please wait");
                 TimeUnit.SECONDS.sleep(5);

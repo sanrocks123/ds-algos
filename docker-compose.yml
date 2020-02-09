@@ -6,15 +6,54 @@ services:
   tagging-service:
     build: .
     image: gradle-demo:latest    
+    container_name: tag1
     ports:
       - 1000:1000
-  
+    networks: 
+      - elk
+      
   jenkinsci:
     image: jenkinsci/blueocean:latest
+    container_name: jenkinsci
     ports:
       - 8080:8080
     volumes:
       - jenkins-data:/var/jenkins_home
+    networks: 
+      - elk
+  
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.5.2
+    container_name: elasticsearch
+    environment:
+      - node.name=es01
+      - cluster.name=es-docker-cluster
+      - discovery.type=single-node      
+    volumes:
+      - es-data:/usr/share/elasticsearch/data
+    ports:
+      - 9200:9200
+      - 9300:9300
+    networks: 
+      - elk
+  
+  kibana:
+    container_name: kibana
+    depends_on:
+      - elasticsearch
+    image: docker.elastic.co/kibana/kibana:7.5.2
+    environment:
+      SERVER_NAME: kibana
+      ELASTICSEARCH_HOSTS: http://192.168.137.1:9200
+      SERVER_HOST: kibana
+    ports:
+      - 5601:5601
+    networks:
+      - elk
 
 volumes:
   jenkins-data:
+  es-data:
+
+networks:
+  elk:
