@@ -4,7 +4,9 @@
 
 package sanrockzz.gradledemo.repositories;
 
+import java.io.File;
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -38,18 +40,29 @@ public class TaggingRepository {
     }
 
     /**
-     * 
+     *
      */
     private void doExecuteScript() {
         try {
-            final Process p = Runtime.getRuntime().exec("/usr/local/gradle-app/devops/helllo.sh");
+
+            final ProcessBuilder pb = new ProcessBuilder("/usr/local/gradle-app/devops/hello.sh");
+            pb.environment().put("USERS", "saxena@MSAD.MS.COM, raaashi@MSAD.MS.COM");
+            pb.environment().put("ES_URL", "http://hello:8080");
+
+            pb.redirectOutput(new File("/usr/local/gradle-app/process.output"));
+
+            final Process p = pb.start();
+
             while (p.isAlive()) {
+                log.info("script still running, please wait");
+                TimeUnit.SECONDS.sleep(5);
             }
+
             if (p.exitValue() == 0) {
-                log.info("hello.sh executed normally");
+                log.info("Great ! script executed, status ok");
             }
         }
-        catch (final IOException e) {
+        catch (final IOException | InterruptedException e) {
             e.printStackTrace();
         }
     }

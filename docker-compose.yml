@@ -3,9 +3,9 @@
 
 version: "3"
 services:
-  
   tagging-service:
-    image: sanrocks123/gradle-demo:latest
+    build: .
+    image: gradle-demo:latest    
     ports:
       - 1000:1000
   
