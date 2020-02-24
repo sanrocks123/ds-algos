@@ -35,14 +35,6 @@ public class Java8Test {
     private final Logger log = LoggerFactory.getLogger(getClass());
 
     @Test
-    public void testAverage() {
-        // final List<Integer> numbers = Arrays.asList(new Integer[] { 1, 2, 3,
-        // 4 });
-        // numbers.stream().map(k -> k.intValue() * 3).filter(n -> n.intValue()
-        // > 10).;
-    }
-
-    @Test
     public void testFlatMap() {
         final Map<String, List<String>> people = new HashMap<>();
         people.put("John", Arrays.asList("555-1123", "555-3389"));
