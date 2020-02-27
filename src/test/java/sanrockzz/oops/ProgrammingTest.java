@@ -103,20 +103,6 @@ public class ProgrammingTest {
 
     /**
      *
-     * Find occurrence position of given needle string m of size k in haystack n
-     *
-     * Input 2, na, banananobanono
-     *
-     * Output 2,4
-     *
-     */
-    @Test
-    public void testFindNeedleCountInHayStack() {
-
-    }
-
-    /**
-     *
      */
     @Ignore
     @Test
