@@ -2,7 +2,7 @@
  * Copyright (c) @Sanjeev Saxena 2017. All Rights Reserved.
  */
 
-package sanrockzz.creditsuisse;
+package sanrockzz.cs;
 
 import java.math.BigDecimal;
 import java.util.HashMap;

@@ -14,6 +14,8 @@ package sanrockzz.polymorphism;
 
 public interface InterfaceB {
 
+    abstract void aa();
+
     default void print() {
         System.out.println("Interface B");
     }

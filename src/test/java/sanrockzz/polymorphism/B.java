@@ -28,7 +28,7 @@ public class B extends BaseA implements InterfaceA, InterfaceB {
     /*
      * (non-Javadoc)
      *
-     * @see test.interview.overriding.InterfaceA#aa()
+     * @see sanrockzz.polymorphism.InterfaceA#aa()
      */
     @Override
     public void aa() {

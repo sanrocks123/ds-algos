@@ -93,8 +93,7 @@ public class ProgrammingTest {
             System.out.println("sum : " + sum);
             if (sum == n) {
                 System.out.println("YES");
-            }
-            else {
+            } else {
                 System.out.println("NO");
             }
         }

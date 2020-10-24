@@ -28,10 +28,12 @@ public class HealthController {
     @Autowired
     private HealthCheckService healthCheck;
 
+    /**
+     * 
+     */
     @ApiOperation(value = "Health Check API")
     @GetMapping(value = "/health")
     public ResponseEntity<Map<String, Object>> serviceHealthCheck() {
         return new ResponseEntity<Map<String, Object>>(healthCheck.getHealthStatus(), HttpStatus.OK);
-
     }
 }

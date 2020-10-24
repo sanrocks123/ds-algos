@@ -117,6 +117,8 @@ public class StaticResourceConfig implements WebMvcConfigurer {
     public void addViewControllers(ViewControllerRegistry registry) {
         // TODO Auto-generated method stub
 
+        registry.addViewController("/wire-frame/**").setViewName("index.html");
+
     }
 
     /*

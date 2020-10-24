@@ -1,7 +1,10 @@
 package sanrockzz.oops;
 
-import org.junit.Assert;
+import java.util.concurrent.CompletableFuture;
+
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Java Source CompletableFutureTest.java created on Feb 19, 2020
@@ -13,9 +16,13 @@ import org.junit.Test;
 
 public class CompletableFutureTest {
 
+    private final Logger log = LoggerFactory.getLogger(getClass());
+
     @Test
-    public void test() {
-        Assert.assertTrue("a" == "a");
+    public void testCompletableFuture() {
+
+        CompletableFuture.runAsync(() -> log.info("hello world"));
+
     }
 
 }

@@ -4,6 +4,8 @@
 
 package sanrockzz.oops;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
@@ -166,6 +168,35 @@ public class ConcurrentTest {
         eSvc.shutdown();
         while (!eSvc.isTerminated()) {
         }
+    }
+
+    @Test
+    public void testPrintNumbers() throws InterruptedException {
+
+        final List<Integer> counter = new ArrayList<>();
+
+        new Thread(() -> {
+
+            while (counter.size() != 10) {
+                synchronized (counter) {
+                    System.out.println(Thread.currentThread().getName() + ": " + counter.size());
+                }
+            }
+
+        }).start();
+
+        new Thread(() -> {
+
+            while (counter.size() != 10) {
+                synchronized (counter) {
+                    System.out.println(Thread.currentThread().getName() + ": " + counter.size());
+                }
+            }
+
+        }).start();
+
+        TimeUnit.SECONDS.sleep(5);
+
     }
 
     @Ignore

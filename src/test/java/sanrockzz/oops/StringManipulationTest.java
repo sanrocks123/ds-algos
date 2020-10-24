@@ -37,10 +37,31 @@ public class StringManipulationTest {
     }
 
     @Test
+    public void testStringObjectNull() {
+        new StringManipulationTest().hello(null);
+        new StringManipulationTest().hello((Object) null);
+    }
+
+    @Test
     public void testSystemOverloading() {
         final String str = null;
         System.out.println(null + str);
         System.out.println(str + null);
     }
 
+    /**
+     * @param object
+     */
+    private void hello(Object object) {
+        log.debug("object: {}", object);
+
+    }
+
+    /**
+     * @param object
+     */
+    private void hello(String str) {
+        log.debug("str: {}", str);
+
+    }
 }

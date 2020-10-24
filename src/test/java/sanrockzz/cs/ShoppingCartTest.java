@@ -2,7 +2,7 @@
  * Copyright (c) @Sanjeev Saxena 2017. All Rights Reserved.
  */
 
-package sanrockzz.creditsuisse;
+package sanrockzz.cs;
 
 import org.junit.Assert;
 import org.junit.Test;
