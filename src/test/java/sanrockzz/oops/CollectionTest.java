@@ -6,6 +6,7 @@ package sanrockzz.oops;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
@@ -28,6 +29,14 @@ import org.slf4j.LoggerFactory;
 public class CollectionTest {
 
     private final Logger log = LoggerFactory.getLogger(getClass());
+
+    @Test
+    public void testBinarySearch() {
+        final List<String> str = Arrays.asList(new String[] { "mumbai", "pune", "new york", "sydney" });
+        Collections.sort(str);
+
+        log.info("sorted list: {}", str);
+    }
 
     @Test
     public void testCollectionEqualsTest() {

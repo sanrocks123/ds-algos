@@ -38,12 +38,18 @@ public class GeneralTest {
         OddEvenCounter oo = new OddEvenCounter(1, 5);
         oo = null;
         System.gc();
-        log.info("endd", oo);
+        log.info("endd {}", oo);
     }
 
     @Test
     public void testASCIICode() {
-        System.out.println(Integer.valueOf("v".charAt(0)));
+
+        try {
+            System.out.println(Integer.valueOf("v".charAt(0)));
+        }
+        finally {
+            System.out.println("finally");
+        }
     }
 
     @Test
@@ -118,6 +124,19 @@ public class GeneralTest {
         final ExtendedImmutableClass ext = new ExtendedImmutableClass(123);
         final Object aa = null;
         ext.printVal(aa);
+    }
+
+    @Test
+    public void testObjectReferences() {
+
+        String a = new String("A");
+        final String b = new String("B");
+
+        a = new String("AA");
+        a = b;
+
+        log.info("a: {}, b: {}", a, b);
+
     }
 
     @Test

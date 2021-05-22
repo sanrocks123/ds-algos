@@ -79,7 +79,6 @@ public class ConcurrentTest {
     }
 
     @Test
-    @Ignore
     public void testJoin() throws InterruptedException {
 
         final Thread t1 = new Thread(() -> {
@@ -91,7 +90,7 @@ public class ConcurrentTest {
             catch (final InterruptedException e) {
                 e.printStackTrace();
             }
-        });
+        }, "t1");
 
         final Thread t2 = new Thread(() -> {
             try {
@@ -102,7 +101,7 @@ public class ConcurrentTest {
             catch (final InterruptedException e) {
                 e.printStackTrace();
             }
-        });
+        }, "t2");
 
         final Thread t3 = new Thread(() -> {
             try {
@@ -113,22 +112,17 @@ public class ConcurrentTest {
             catch (final InterruptedException e) {
                 e.printStackTrace();
             }
-        });
+        }, "t3");
 
-        t3.setName("t3");
         t3.start();
-
-        t2.setName("t2");
         t2.start();
-
-        t1.setName("t1");
         t1.start();
 
         t3.join();
-
         t2.join();
-
         t1.join();
+
+        log.info("main thread done");
     }
 
     @Ignore
@@ -186,7 +180,6 @@ public class ConcurrentTest {
         }).start();
 
         new Thread(() -> {
-
             while (counter.size() != 10) {
                 synchronized (counter) {
                     System.out.println(Thread.currentThread().getName() + ": " + counter.size());
@@ -194,9 +187,7 @@ public class ConcurrentTest {
             }
 
         }).start();
-
         TimeUnit.SECONDS.sleep(5);
-
     }
 
     @Ignore

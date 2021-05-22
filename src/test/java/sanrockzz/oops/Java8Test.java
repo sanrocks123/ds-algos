@@ -12,6 +12,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 import org.junit.Test;
@@ -42,8 +43,25 @@ public class Java8Test {
         people.put("Steve", Arrays.asList("555-6654", "555-3242"));
 
         final List<String> phones = people.values().stream().flatMap(Collection::stream).collect(Collectors.toList());
-
         log.info("phones {}", phones);
+    }
+
+    @Test
+    public void testFlatMapOperations() {
+        final List<Employee> employees = new CopyOnWriteArrayList<>();
+
+        employees.add(new Employee(3, "A"));
+        employees.add(new Employee(1, "B"));
+        employees.add(new Employee(2, "C"));
+
+        final Predicate<Employee> filter = (e) -> e.getEmpId() > 0;
+
+        final long count = employees.stream().filter(filter).peek(e -> log.info("e: {}", e.getName()))
+                .mapToInt(Employee::getEmpId).count();
+
+        log.info("count: {}, cc: {}", count, employees.size());
+
+        employees.stream();
     }
 
     @Test
@@ -90,6 +108,23 @@ public class Java8Test {
 
         final int sum = Arrays.stream(new int[] { 1, 2, 3 }).filter(i -> i >= 2).map(i -> i * 3).sum();
         log.info("sum {}", sum);
+    }
+
+    @Test
+    public void testStreamsReducer() {
+        final List<Employee> employees = new CopyOnWriteArrayList<>();
+
+        employees.add(new Employee(3, "A"));
+        employees.add(new Employee(1, "B"));
+        employees.add(new Employee(2, "C"));
+
+        final Predicate<Employee> filter = (e) -> e.getEmpId() > 0;
+
+        final long count = employees.stream().filter(filter).peek(e -> log.info("e: {}", e.getName()))
+                .mapToInt(Employee::getEmpId).count();
+
+        log.info("count: {}, cc: {}", count, employees.size());
+
     }
 
 }
