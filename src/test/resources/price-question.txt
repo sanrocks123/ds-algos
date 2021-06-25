@@ -46,11 +46,11 @@ Q2
 
 						
 Todo
-    - class modelling
+    - Represent above data with class
 
-Basket Functions-
-- addItemToBasket
-- removeItemFromBasket
+Cart Functions-
+- addItemToCart
+- removeItemFromCart
 - generateInvoice
 
 

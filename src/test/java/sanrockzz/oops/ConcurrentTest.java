@@ -339,4 +339,31 @@ public class ConcurrentTest {
         even.join();
         odd.join();
     }
+
+    @Test
+    public void testThreadCounter() {
+
+        final OddEvenCounter sharedCounter = new OddEvenCounter(0, 10);
+        final Runnable task = () -> {
+            synchronized (sharedCounter) {
+                sharedCounter.setCount(sharedCounter.getCount() + 1);
+
+                if (0 == sharedCounter.getCount() % 2) {
+                    log.info("{} Even", sharedCounter.getCount());
+                }
+                else {
+                    log.info("{} Odd", sharedCounter.getCount());
+                }
+            }
+        };
+
+        final ExecutorService execSvc = Executors.newFixedThreadPool(3);
+        for (int i = 0; i < 10; i++) {
+            execSvc.execute(task);
+        }
+
+        execSvc.shutdown();
+        while (!execSvc.isTerminated()) {
+        }
+    }
 }

@@ -130,13 +130,13 @@ public class GeneralTest {
     public void testObjectReferences() {
 
         String a = new String("A");
-        final String b = new String("B");
+        String b = new String("B");
 
         a = new String("AA");
+        b = null;
         a = b;
 
         log.info("a: {}, b: {}", a, b);
-
     }
 
     @Test
