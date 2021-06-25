@@ -47,6 +47,7 @@ public class MicrosoftTest {
             final boolean isBackup = fileName.trim().endsWith("~");
 
             return isSizeValid && isAfter && isBackup;
+
         }).map(f -> {
             final String token[] = f.trim().split(" ");
             final String fileName = token[2];
