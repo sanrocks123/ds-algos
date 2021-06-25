@@ -17,10 +17,6 @@ public class FileStreamTest {
     @Test
     public void testFileStream() throws FileNotFoundException {
 
-        // final InputStream is =
-        // getClass().getClassLoader().getResourceAsStream("FileStream.txt");
-        // final FileInputStream fos = new FileInputStream("");
-
     }
 
 }
