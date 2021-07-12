@@ -4,6 +4,9 @@
 
 package sanrockzz.oops;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.junit.Assert;
 import org.junit.Test;
 import org.slf4j.Logger;
@@ -20,6 +23,23 @@ import org.slf4j.LoggerFactory;
 public class StringManipulationTest {
 
     private final Logger log = LoggerFactory.getLogger(getClass());
+
+    @Test
+    public void testHashMap() {
+        final String s1 = "Sanjeev";
+        final String s2 = new String("Sanjeev");
+
+        System.out.println(s1.hashCode());
+        System.out.println(s2.hashCode());
+
+        System.out.println(s1 == s2);
+
+        final Map<String, String> map = new HashMap<>();
+        map.put(s1, "s1");
+        map.put(s2, "s2");
+
+        System.out.println(map);
+    }
 
     @Test
     public void testIntern() {

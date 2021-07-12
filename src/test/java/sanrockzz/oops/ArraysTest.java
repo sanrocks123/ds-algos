@@ -1,5 +1,9 @@
 package sanrockzz.oops;
 
+import java.util.Arrays;
+import java.util.LinkedHashMap;
+import java.util.Map;
+
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,6 +21,66 @@ public class ArraysTest {
     private final Logger log = LoggerFactory.getLogger(getClass());
 
     @Test
+    public void testArrayAlternateSorting() {
+        final int[] arr = { 1, 2, 3, -4, -1, 4 };
+
+        Arrays.sort(arr);
+        for (final int a : arr) {
+            System.out.print(a);
+        }
+
+        int posStartIdx = -1;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] >= 0) {
+                posStartIdx = i;
+                break;
+            }
+        }
+        int j = posStartIdx;
+        for (int i = 0; i < posStartIdx; i++) {
+
+            if (i % 2 == 0) {
+                if (arr[i] > 0) {
+                    final int temp = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = temp;
+                    j++;
+                }
+            }
+            else {
+                if (arr[i] < 0) {
+                    final int temp = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = temp;
+                    j++;
+                }
+            }
+        }
+
+        System.out.println("\n");
+        for (final int a : arr) {
+            System.out.print(a);
+        }
+
+    }
+
+    @Test
+    public void testDuplicateNumbers() {
+
+        final int arr[] = { 1, 2, 3, 1, 3, 6, 6 };
+
+        for (int i = 0; i < arr.length; i++) {
+            final int j = Math.abs(arr[i]);
+            if (arr[j] >= 0) {
+                arr[j] = -arr[j];
+            }
+            else {
+                System.out.println(j + " ");
+            }
+        }
+    }
+
+    @Test
     public void testLargestSumContugousSubarray() {
 
         final int a[] = new int[] { -2, -3, 4, -1, -2, 1, 5, -3 };
@@ -30,11 +94,33 @@ public class ArraysTest {
                 sum = currentSum;
             }
 
-            if (currentSum < 0) {
+            if (currentSum <= 0) {
                 currentSum = 0;
             }
         }
         log.info("sum: {}", sum);
+    }
+
+    @Test
+    public void testNonRepeatingFirstChar() {
+
+        final String str = "GeeksForGeeks";
+        final char[] cArr = str.toCharArray();
+
+        final Map<String, Integer> map = new LinkedHashMap<>();
+        for (final char c : cArr) {
+            map.computeIfPresent(Character.valueOf(c).toString(), (k, v) -> v + 1);
+            map.computeIfAbsent(Character.valueOf(c).toString(), a -> 1);
+        }
+
+        log.info("map: {}", map);
+
+        for (final Map.Entry<String, Integer> entry : map.entrySet()) {
+            if (entry.getValue().equals(1)) {
+                log.info("first non repeating char: {}", entry.getKey());
+                break;
+            }
+        }
     }
 
     @Test
@@ -71,6 +157,27 @@ public class ArraysTest {
         for (final Integer i : a) {
             log.info("after reversal : {}", i);
         }
+    }
+
+    @Test
+    public void testSubArrayWithZeroSum() {
+
+        final int[] arr = { 4, 2, -3, 1, 6 };
+
+        int currentSum = 0;
+        for (final int element : arr) {
+
+            currentSum = currentSum + element;
+
+            if (currentSum == 0) {
+                System.out.println("yes, zero sum exists");
+            }
+
+            if (currentSum > 0) {
+                currentSum = 0;
+            }
+        }
+
     }
 
     /**

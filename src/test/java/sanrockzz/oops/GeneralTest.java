@@ -93,6 +93,14 @@ public class GeneralTest {
     }
 
     @Test
+    public void testFactorialWithRecursive() {
+
+        final int n = 3;
+        System.out.printf("fact: %d ", factorial(n));
+
+    }
+
+    @Test
     public void testImmutable() {
 
         ImmutableClass a = new ImmutableClass(1);
@@ -189,6 +197,18 @@ public class GeneralTest {
         while (!eSvc.isTerminated()) {
         }
 
+    }
+
+    /**
+     * @param n
+     * @return
+     */
+    private int factorial(int n) {
+
+        if (n == 0) {
+            return 1;
+        }
+        return n * factorial(n - 1);
     }
 
     /**

@@ -172,22 +172,52 @@ public class ConcurrentTest {
         new Thread(() -> {
 
             while (counter.size() != 10) {
+
                 synchronized (counter) {
-                    System.out.println(Thread.currentThread().getName() + ": " + counter.size());
+
+                    if (counter.size() % 2 == 0) {
+                        counter.add(0);
+                        System.out.println(Thread.currentThread().getName() + ": " + counter.size());
+                        counter.notify();
+                    }
+                    else {
+                        try {
+                            counter.wait();
+                        }
+                        catch (final InterruptedException e) {
+                            log.error("even thread interrupted");
+                        }
+                    }
                 }
             }
 
-        }).start();
+        }, "even").start();
 
         new Thread(() -> {
+
             while (counter.size() != 10) {
+
                 synchronized (counter) {
-                    System.out.println(Thread.currentThread().getName() + ": " + counter.size());
+                    if (counter.size() % 2 != 0) {
+                        counter.add(0);
+                        System.out.println(Thread.currentThread().getName() + ": " + counter.size());
+                        counter.notify();
+                    }
+
+                    else {
+                        try {
+                            counter.wait();
+                        }
+                        catch (final InterruptedException e) {
+                            log.error("odd thread interrupted");
+                        }
+                    }
                 }
             }
 
-        }).start();
-        TimeUnit.SECONDS.sleep(5);
+        }, "odd").start();
+
+        TimeUnit.SECONDS.sleep(2);
     }
 
     @Ignore

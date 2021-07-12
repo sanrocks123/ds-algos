@@ -16,7 +16,19 @@ class A {
     }
 }
 
+interface AA {
+    int a = 10;
+
+    default void defaultPrintMethod() {
+        System.out.println("Interface A");
+    }
+
+    abstract void displaySAM();
+
+}
+
 class B extends A implements AA, BB {
+    int a = 20;
 
     /**
      * @param i
@@ -27,6 +39,7 @@ class B extends A implements AA, BB {
 
     @Override
     public void defaultPrintMethod() {
+        System.out.println(a++);
         BB.super.defaultPrintMethod();
     }
 
@@ -34,16 +47,6 @@ class B extends A implements AA, BB {
     public void displaySAM() {
         // TODO Auto-generated method stub
     }
-
-}
-
-interface AA {
-
-    default void defaultPrintMethod() {
-        System.out.println("Interface A");
-    }
-
-    abstract void displaySAM();
 
 }
 
