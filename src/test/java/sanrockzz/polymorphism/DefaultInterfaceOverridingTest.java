@@ -39,7 +39,8 @@ class B extends A implements AA, BB {
 
     @Override
     public void defaultPrintMethod() {
-        System.out.println(a++);
+        a++;
+        System.out.println(a);
         BB.super.defaultPrintMethod();
     }
 
@@ -64,8 +65,10 @@ public class DefaultInterfaceOverridingTest {
 
     @Test
     public void test() {
-        final A a = new B(100);
-        a.display();
+        // final A a = new B(100);
+        // a.display();
+
+        new B(10).defaultPrintMethod();
     }
 
 }

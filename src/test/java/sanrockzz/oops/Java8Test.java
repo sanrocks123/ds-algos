@@ -5,7 +5,6 @@
 package sanrockzz.oops;
 
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
@@ -42,7 +41,7 @@ public class Java8Test {
         people.put("Mary", Arrays.asList("555-2243", "555-5264"));
         people.put("Steve", Arrays.asList("555-6654", "555-3242"));
 
-        final List<String> phones = people.values().stream().flatMap(Collection::stream).collect(Collectors.toList());
+        final List<String> phones = people.values().stream().flatMap(m -> m.stream()).collect(Collectors.toList());
         log.info("phones {}", phones);
     }
 
@@ -121,7 +120,7 @@ public class Java8Test {
         final Predicate<Employee> filter = (e) -> e.getEmpId() > 0;
 
         final long count = employees.stream().filter(filter).peek(e -> log.info("e: {}", e.getName()))
-                .mapToInt(Employee::getEmpId).count();
+                .mapToInt(e -> e.getEmpId()).count();
 
         log.info("count: {}, cc: {}", count, employees.size());
 

@@ -1,8 +1,10 @@
 package sanrockzz.oops;
 
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.Set;
 
 import org.junit.Test;
 import org.slf4j.Logger;
@@ -101,6 +103,38 @@ public class ArraysTest {
         log.info("sum: {}", sum);
     }
 
+    // Input: arr[] = {1, 9, 3, 10, 4, 20, 2}
+    // Output: 4
+
+    @Test
+    public void testLongestConsecutiveSubsequence() {
+        final Set<Integer> hash = new HashSet<>();
+        final int arr[] = { 1, 9, 3, 10, 4, 20, 2 };
+        for (final int a : arr) {
+            hash.add(a);
+        }
+
+        int maxCount = Integer.MIN_VALUE;
+        for (final int a : arr) {
+
+            if (!hash.contains(a - 1)) {
+
+                final int start = a;
+                int next = start;
+                int count = 0;
+
+                while (hash.contains(next)) {
+                    next++;
+                    count++;
+                }
+                if (count > maxCount) {
+                    maxCount = count;
+                }
+            }
+        }
+        log.info("max count : {}", maxCount);
+    }
+
     @Test
     public void testNonRepeatingFirstChar() {
 
@@ -160,22 +194,23 @@ public class ArraysTest {
     }
 
     @Test
-    public void testSubArrayWithZeroSum() {
+    public void testSeggregateEvenOdd() {
 
-        final int[] arr = { 4, 2, -3, 1, 6 };
+        final int[] arr = { 1, 2, 3, 4, 5, 6 };
 
-        int currentSum = 0;
-        for (final int element : arr) {
+        int prevOdd = -1;
+        for (int i = 0; i < arr.length; i++) {
 
-            currentSum = currentSum + element;
-
-            if (currentSum == 0) {
-                System.out.println("yes, zero sum exists");
+            if (arr[i] % 2 == 0) {
+                prevOdd++;
+                final int temp = arr[prevOdd];
+                arr[prevOdd] = arr[i];
+                arr[i] = temp;
             }
+        }
 
-            if (currentSum > 0) {
-                currentSum = 0;
-            }
+        for (final int e : arr) {
+            System.out.print(e);
         }
 
     }
