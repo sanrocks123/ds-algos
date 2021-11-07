@@ -34,32 +34,32 @@ jar {
 
 dependencies {
 
-	compile "org.springframework.boot:spring-boot-starter-web:1.5.8.RELEASE"
-   	compile "org.json:json:20171018"
+	implementation "org.springframework.boot:spring-boot-starter-web:1.5.8.RELEASE"
+   	implementation "org.json:json:20171018"
 	   	
-   	compile "com.fasterxml.jackson.core:jackson-databind:2.9.3"
-	compile "com.fasterxml.jackson.core:jackson-annotations:2.9.3"
-	compile "com.fasterxml.jackson.core:jackson-core:2.9.3"
+   	implementation "com.fasterxml.jackson.core:jackson-databind:2.9.3"
+	implementation "com.fasterxml.jackson.core:jackson-annotations:2.9.3"
+	implementation "com.fasterxml.jackson.core:jackson-core:2.9.3"
 	
-   	compile "io.springfox:springfox-swagger2:2.9.2"
-	compile "io.springfox:springfox-swagger-ui:2.9.2"
-	compile "org.webjars:jquery:2.2.4"
+   	implementation "io.springfox:springfox-swagger2:2.9.2"
+	implementation "io.springfox:springfox-swagger-ui:2.9.2"
+	implementation "org.webjars:jquery:2.2.4"
 	
-	compile "org.springframework.ws:spring-ws-core:2.4.2.RELEASE"
-	compile "org.springframework:spring-oxm:3.0.4.RELEASE"
+	implementation "org.springframework.ws:spring-ws-core:2.4.2.RELEASE"
+	implementation "org.springframework:spring-oxm:3.0.4.RELEASE"
 	
-	compile "org.springframework.kafka:spring-kafka:1.0.2.RELEASE"
+	implementation "org.springframework.kafka:spring-kafka:1.0.2.RELEASE"
 			   	
-   	testCompile "junit:junit:4.12"
-   	testCompile "org.jmockit:jmockit:1.9"
-   	testCompile"org.springframework.boot:spring-boot-starter-test:1.5.8.RELEASE"
+   	testImplementation "junit:junit:4.12"
+   	testImplementation "org.jmockit:jmockit:1.9"
+   	testImplementation"org.springframework.boot:spring-boot-starter-test:1.5.8.RELEASE"
 	
 	}
 
 
 task copyToLib(type: Copy) {
-    	from configurations.runtime
-    	into "$buildDir/lib"    
+    	from configurations.runtimeClasspath
+	into "$buildDir/lib"
 	}
 task copyJar(type: Copy) {
     	from "$buildDir/libs"

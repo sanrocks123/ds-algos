@@ -2,7 +2,7 @@
  * Copyright (c) @Sanjeev Saxena 2017. All Rights Reserved.
  */
 
-package java.programming;
+package programming.java;
 
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;

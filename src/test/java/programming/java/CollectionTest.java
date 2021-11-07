@@ -2,30 +2,21 @@
  * Copyright (c) 2019 @SanRockzz Ltd. All Rights Reserved.
  */
 
-package java.programming;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeSet;
+package programming.java;
 
 import org.junit.Assert;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.*;
+
 /**
  * Java Source CollectionTest.java created on Dec 21, 2019
  *
  * @author : Sanjeev Saxena
- * @email : sanrocks123@gmail.com
  * @version : 1.0
+ * @email : sanrocks123@gmail.com
  */
 
 public class CollectionTest {
@@ -34,7 +25,7 @@ public class CollectionTest {
 
     @Test
     public void testBinarySearch() {
-        final List<String> str = Arrays.asList(new String[] { "mumbai", "pune", "new york", "sydney" });
+        final List<String> str = Arrays.asList("mumbai", "pune", "new york", "sydney");
         Collections.sort(str);
 
         log.info("sorted list: {}", str);
@@ -42,7 +33,7 @@ public class CollectionTest {
 
     @Test
     public void testCollectionEqualsTest() {
-        final List<String> str = Arrays.asList(new String[] { "a", "b", "c", "a" });
+        final List<String> str = Arrays.asList("a", "b", "c", "a");
         final Set<String> set = new HashSet<>(str);
         final Set<String> ss = new TreeSet<>(str);
         Assert.assertTrue(set.equals(ss));
@@ -50,7 +41,7 @@ public class CollectionTest {
 
     @Test(expected = UnsupportedOperationException.class)
     public void testIteratorRemoval() {
-        final List<String> list = Arrays.asList(new String[] { "a", "b", "c", "a" });
+        final List<String> list = Arrays.asList("a", "b", "c", "a");
         final Iterator<String> itr = list.iterator();
         list.remove("a");
         while (itr.hasNext()) {
@@ -72,7 +63,7 @@ public class CollectionTest {
     }
 
     @Test
-    @SuppressWarnings({ "unchecked", "rawtypes" })
+    @SuppressWarnings({"unchecked", "rawtypes"})
     public void testUnrelatedListObjects() {
 
         final List list = new ArrayList();

@@ -2,7 +2,7 @@
  * Copyright (c) @Sanjeev Saxena 2017. All Rights Reserved.
  */
 
-package java.programming;
+package programming.java;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,8 +30,8 @@ import sanrockzz.gradledemo.dto.Employee;
  * Java Source ConcurrentTest.java created on Mar 20, 2019
  *
  * @author : Sanjeev Saxena
- * @email : sanrocks123@gmail.com
  * @version : 1.0
+ * @email : sanrocks123@gmail.com
  */
 
 public class ConcurrentTest {
@@ -48,8 +48,7 @@ public class ConcurrentTest {
             while (writer > 0) {
                 try {
                     wait();
-                }
-                catch (final InterruptedException e) {
+                } catch (final InterruptedException e) {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
@@ -70,8 +69,7 @@ public class ConcurrentTest {
             while (reader > 0) {
                 try {
                     wait();
-                }
-                catch (final InterruptedException e) {
+                } catch (final InterruptedException e) {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
@@ -99,8 +97,7 @@ public class ConcurrentTest {
             final Employee e = new Employee(new Random().nextInt(), "a");
             try {
                 bQueue.put(e);
-            }
-            catch (final InterruptedException e1) {
+            } catch (final InterruptedException e1) {
                 e1.printStackTrace();
             }
             log.info("{} produced {}", Thread.currentThread().getName(), e);
@@ -111,8 +108,7 @@ public class ConcurrentTest {
                 TimeUnit.SECONDS.sleep(1);
                 final Employee e = bQueue.take();
                 log.info("{} consumed {}", Thread.currentThread().getName(), e);
-            }
-            catch (final InterruptedException e) {
+            } catch (final InterruptedException e) {
                 e.printStackTrace();
             }
         };
@@ -137,8 +133,7 @@ public class ConcurrentTest {
                 log.info("{} started", Thread.currentThread().getName());
                 TimeUnit.SECONDS.sleep(2);
                 log.info("{} done", Thread.currentThread().getName());
-            }
-            catch (final InterruptedException e) {
+            } catch (final InterruptedException e) {
                 e.printStackTrace();
             }
         }, "t1");
@@ -148,8 +143,7 @@ public class ConcurrentTest {
                 log.info("{} started", Thread.currentThread().getName());
                 TimeUnit.SECONDS.sleep(2);
                 log.info("{} done", Thread.currentThread().getName());
-            }
-            catch (final InterruptedException e) {
+            } catch (final InterruptedException e) {
                 e.printStackTrace();
             }
         }, "t2");
@@ -159,8 +153,7 @@ public class ConcurrentTest {
                 log.info("{} started", Thread.currentThread().getName());
                 TimeUnit.SECONDS.sleep(3);
                 log.info("{} done", Thread.currentThread().getName());
-            }
-            catch (final InterruptedException e) {
+            } catch (final InterruptedException e) {
                 e.printStackTrace();
             }
         }, "t3");
@@ -191,16 +184,13 @@ public class ConcurrentTest {
                         final int tt = count.getCount() + 1;
                         count.setCount(tt);
                         log.info("Thread {}, Acquired, count {}", Thread.currentThread().getName(), count.getCount());
-                    }
-                    finally {
+                    } finally {
                         lock.unlock();
                     }
-                }
-                else {
+                } else {
                     log.info("Thread {}, Not Acquired, count {}", Thread.currentThread().getName(), count.getCount());
                 }
-            }
-            catch (final InterruptedException e) {
+            } catch (final InterruptedException e) {
                 log.error("Error ", e);
             }
         };
@@ -230,12 +220,10 @@ public class ConcurrentTest {
                         counter.add(0);
                         System.out.println(Thread.currentThread().getName() + ": " + counter.size());
                         counter.notify();
-                    }
-                    else {
+                    } else {
                         try {
                             counter.wait();
-                        }
-                        catch (final InterruptedException e) {
+                        } catch (final InterruptedException e) {
                             log.error("even thread interrupted");
                         }
                     }
@@ -253,13 +241,10 @@ public class ConcurrentTest {
                         counter.add(0);
                         System.out.println(Thread.currentThread().getName() + ": " + counter.size());
                         counter.notify();
-                    }
-
-                    else {
+                    } else {
                         try {
                             counter.wait();
-                        }
-                        catch (final InterruptedException e) {
+                        } catch (final InterruptedException e) {
                             log.error("odd thread interrupted");
                         }
                     }
@@ -284,8 +269,7 @@ public class ConcurrentTest {
                     queue.put(number);
                     count.decrementAndGet();
                     log.info("Thread {} Produced {}", Thread.currentThread().getName(), number);
-                }
-                catch (final InterruptedException e) {
+                } catch (final InterruptedException e) {
                     e.printStackTrace();
                 }
             }
@@ -296,8 +280,7 @@ public class ConcurrentTest {
                 try {
                     final int number = queue.take();
                     System.out.println("Thread " + Thread.currentThread().getName() + " Consumed " + number);
-                }
-                catch (final InterruptedException e) {
+                } catch (final InterruptedException e) {
                     e.printStackTrace();
                 }
             }
@@ -331,22 +314,18 @@ public class ConcurrentTest {
 
                                 TimeUnit.SECONDS.sleep(3);
                                 condition.signal();
-                            }
-                            else {
+                            } else {
                                 log.info("{}, count not ZERO, waiting", Thread.currentThread().getName());
                                 condition.await(5, TimeUnit.SECONDS);
                             }
-                        }
-                        finally {
+                        } finally {
                             lock.unlock();
                             log.info("{}, lock released", Thread.currentThread().getName());
                         }
-                    }
-                    else {
+                    } else {
                         log.info("{}, lock acquire failed", Thread.currentThread().getName());
                     }
-                }
-                catch (final InterruptedException e) {
+                } catch (final InterruptedException e) {
                     log.error("Error", e);
                 }
             }
@@ -367,22 +346,18 @@ public class ConcurrentTest {
 
                                 TimeUnit.SECONDS.sleep(3);
                                 condition.signal();
-                            }
-                            else {
+                            } else {
                                 log.info("{}, count ZERO, waiting", Thread.currentThread().getName());
                                 condition.await(5, TimeUnit.SECONDS);
                             }
-                        }
-                        finally {
+                        } finally {
                             lock.unlock();
                             log.info("{}, lock released", Thread.currentThread().getName());
                         }
-                    }
-                    else {
+                    } else {
                         log.info("{}, lock acquire failed", Thread.currentThread().getName());
                     }
-                }
-                catch (final InterruptedException e) {
+                } catch (final InterruptedException e) {
                     log.error("Error", e);
                 }
             }
@@ -410,8 +385,7 @@ public class ConcurrentTest {
                 rwLock.readLock();
                 try {
                     Thread.sleep(2000);
-                }
-                catch (final InterruptedException e) {
+                } catch (final InterruptedException e) {
                     e.printStackTrace();
                 }
 
@@ -424,8 +398,7 @@ public class ConcurrentTest {
                 rwLock.writeLock();
                 try {
                     Thread.sleep(2000);
-                }
-                catch (final InterruptedException e) {
+                } catch (final InterruptedException e) {
                     e.printStackTrace();
                 }
                 rwLock.writeLockRelease();
@@ -471,8 +444,7 @@ public class ConcurrentTest {
 
                 if (0 == sharedCounter.getCount() % 2) {
                     log.info("{} Even", sharedCounter.getCount());
-                }
-                else {
+                } else {
                     log.info("{} Odd", sharedCounter.getCount());
                 }
             }

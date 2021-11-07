@@ -2,7 +2,7 @@
  * Copyright (c) 2019 @SanRockzz Ltd. All Rights Reserved.
  */
 
-package java.programming;
+package programming.java;
 
 import java.math.BigDecimal;
 import java.math.MathContext;

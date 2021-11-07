@@ -1,4 +1,4 @@
-package java.programming;
+package programming.java;
 
 import org.junit.Test;
 

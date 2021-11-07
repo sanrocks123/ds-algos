@@ -1,4 +1,4 @@
-package java.programming;
+package programming.java;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -9,8 +9,8 @@ import org.slf4j.LoggerFactory;
  * Java Source HayStackNeedleTest.java created on Feb 24, 2020
  *
  * @author : Sanjeev Saxena
- * @email : sanrocks123@gmail.com
  * @version : 1.0
+ * @email : sanrocks123@gmail.com
  */
 
 public class HayStackNeedleTest {
@@ -18,13 +18,11 @@ public class HayStackNeedleTest {
     private final Logger log = LoggerFactory.getLogger(getClass());
 
     /**
-     *
      * Find occurrence position of given needle string m of size k in haystack n
-     *
+     * <p>
      * Input 2, na, banananobanono
-     *
+     * <p>
      * Output 2,4
-     *
      */
     @Test
     public void testCase1() {

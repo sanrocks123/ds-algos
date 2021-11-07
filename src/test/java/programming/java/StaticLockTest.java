@@ -1,15 +1,15 @@
-package java.programming;
-
-import java.util.concurrent.TimeUnit;
+package programming.java;
 
 import org.junit.Test;
+
+import java.util.concurrent.TimeUnit;
 
 /**
  * Java Source StaticLockTest.java created on Jul 12, 2021
  *
  * @author : Sanjeev Saxena
- * @email : sanrocks123@gmail.com
  * @version : 1.0
+ * @email : sanrocks123@gmail.com
  */
 
 public class StaticLockTest {
@@ -29,8 +29,7 @@ public class StaticLockTest {
         new Thread(() -> {
             try {
                 new StaticLockTest().a();
-            }
-            catch (final InterruptedException e) {
+            } catch (final InterruptedException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
             }
