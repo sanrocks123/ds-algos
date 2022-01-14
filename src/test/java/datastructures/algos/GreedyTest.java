@@ -1,34 +1,34 @@
 package datastructures.algos;
 
-import java.util.HashSet;
-import java.util.Set;
-
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
+
+import java.util.*;
 
 /**
  * Java Source GreedyTest.java created on Jul 23, 2021
  *
  * @author : Sanjeev Saxena
- * @email : sanrocks123@gmail.com
  * @version : 1.0
+ * @email : sanrocks123@gmail.com
  */
 
 public class GreedyTest {
 
     /**
      * int[] start_times = {10, 11, 13, 12, 12, 13};
-     *
+     * <p>
      * int[] end_times = {12, 13, 14, 14, 13, 14};
-     *
+     * <p>
      * Maximum possible shows: Movie 1: 10-12, Movie 5: 12-13 ,Movie 3 or Movie
      * 6: 13-14
      */
     @Test
     public void testGetMaximumMoviesCount() {
 
-        final int[] start = { 10, 11, 13, 12, 12, 13 };
-        final int[] end = { 12, 13, 14, 14, 13, 14 };
+        final int[] start = {10, 11, 13, 12, 12, 13};
+        final int[] end = {12, 13, 14, 14, 13, 14};
 
         final Set<Integer> count = new HashSet<>();
         count.add(0);
@@ -62,7 +62,7 @@ public class GreedyTest {
 
     @Test
     public void testMinimizeHeight() {
-        final int arr[] = { 1, 15, 10 };
+        final int arr[] = {1, 15, 10};
         final int k = 6;
         int minsofar = Integer.MAX_VALUE;
 
@@ -89,13 +89,14 @@ public class GreedyTest {
         System.out.println(minsofar);
     }
 
+    @Ignore
     @Test
     public void testMinimumCoin() {
 
         // final int arr[] = { 1, 5, 1, 2, 5, 1 };
         // final int k = 3;
 
-        final int arr[] = { 2, 2, 2, 2 };
+        final int arr[] = {2, 2, 2, 2};
         final int k = 0;
         int count = 0;
 
@@ -110,8 +111,7 @@ public class GreedyTest {
 
             if (diff <= k) {
                 count++;
-            }
-            else {
+            } else {
                 final int reducedDiff = arr[i] - (diff - k);
                 if (reducedDiff - arr[i + 1] <= k) {
                     count++;

@@ -1,80 +1,84 @@
-
 /**
-*	Description	: Gradle build file 
-*	Author		: Sanjeev
-*/
+ * 	Description	: Gradle build file
+ * 	Author		: Sanjeev
+ */
 
-buildscript{
-	repositories{
-        jcenter()
+buildscript {
+    repositories {
         mavenCentral()
     }
-    
+
 }
 
-apply plugin : 'application'
-apply plugin : 'eclipse'
+apply plugin: 'application'
+apply plugin: 'eclipse'
 
 mainClassName = 'sanrockzz.gradledemo.main.GradleDemoMain'
 version = '1.0'
 
 repositories {
-		mavenCentral()    
-	}
+    mavenCentral()
+}
 
-sourceCompatibility=1.8
-targetCompatibility=1.8
 
-jar {
-    manifest {
-        attributes 'Implementation-Title': 'Gradle Demo',
-                   'Implementation-Version': version
-    }
+sourceCompatibility = 1.11
+targetCompatibility = 1.11
+
+configurations {
+    testCompile
 }
 
 dependencies {
 
-	implementation "org.springframework.boot:spring-boot-starter-web:1.5.8.RELEASE"
-   	implementation "org.json:json:20171018"
-	   	
-   	implementation "com.fasterxml.jackson.core:jackson-databind:2.9.3"
-	implementation "com.fasterxml.jackson.core:jackson-annotations:2.9.3"
-	implementation "com.fasterxml.jackson.core:jackson-core:2.9.3"
-	
-   	implementation "io.springfox:springfox-swagger2:2.9.2"
-	implementation "io.springfox:springfox-swagger-ui:2.9.2"
-	implementation "org.webjars:jquery:2.2.4"
-	
-	implementation "org.springframework.ws:spring-ws-core:2.4.2.RELEASE"
-	implementation "org.springframework:spring-oxm:3.0.4.RELEASE"
-	
-	implementation "org.springframework.kafka:spring-kafka:1.0.2.RELEASE"
-			   	
-   	testImplementation "junit:junit:4.12"
-   	testImplementation "org.jmockit:jmockit:1.9"
-   	testImplementation"org.springframework.boot:spring-boot-starter-test:1.5.8.RELEASE"
-	
-	}
+    implementation "org.springframework.boot:spring-boot-starter-web:1.5.8.RELEASE"
+    implementation "org.json:json:20171018"
 
+    implementation "com.fasterxml.jackson.core:jackson-databind:2.9.3"
+    implementation "com.fasterxml.jackson.core:jackson-annotations:2.9.3"
+    implementation "com.fasterxml.jackson.core:jackson-core:2.9.3"
 
-task copyToLib(type: Copy) {
-    	from configurations.runtimeClasspath
-	into "$buildDir/lib"
-	}
-task copyJar(type: Copy) {
-    	from "$buildDir/libs"
-    	into "$buildDir/lib"    
-	}
+    implementation "io.springfox:springfox-swagger2:2.9.2"
+    implementation "io.springfox:springfox-swagger-ui:2.9.2"
+    implementation "org.webjars:jquery:2.2.4"
 
-task copyDockerFile(type: Copy) {
-    	from "./Dockerfile"
-    	into "$buildDir"
-   }
+    implementation "org.springframework.ws:spring-ws-core:2.4.2.RELEASE"
+    implementation "org.springframework:spring-oxm:3.0.4.RELEASE"
 
-task copyDevOps(type: Copy) {
-    	from "./devops"
-    	into "$buildDir/devops"
-   }
-   
-build.dependsOn(copyToLib, copyDockerFile, copyJar, copyDevOps)
+    implementation "org.springframework.kafka:spring-kafka:1.0.2.RELEASE"
 
+    testImplementation "junit:junit:4.12"
+    testImplementation "org.jmockit:jmockit:1.9"
+    testImplementation "org.springframework.boot:spring-boot-starter-test:1.5.8.RELEASE"
+
+}
+
+jar {
+    manifest {
+        attributes(
+                'Class-Path': configurations.compileClasspath.collect { it.getName() }.join(' '),
+                'Main-Class': 'sanrockzz.gradledemo.main.GradleDemoMain'
+        )
+    }
+}
+
+tasks.named('build') {
+    doLast {
+        println "Copying deps -> lib..."
+        copy {
+            from configurations.compileClasspath
+            into "$buildDir/lib"
+        }
+
+        println "Copying Dockerfile to build"
+        copy {
+            from "./Dockerfile"
+            into "$buildDir"
+        }
+
+        println "Copying libs -> lib..."
+        copy {
+            from "$buildDir/libs"
+            into "$buildDir/lib"
+        }
+    }
+}

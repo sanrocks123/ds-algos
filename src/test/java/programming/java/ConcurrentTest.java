@@ -4,27 +4,18 @@
 
 package programming.java;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-import java.util.concurrent.ArrayBlockingQueue;
-import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.atomic.AtomicInteger;
-import java.util.concurrent.locks.Condition;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
-
 import org.junit.Ignore;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import sanrockzz.dto.OddEvenCounter;
 import sanrockzz.gradledemo.dto.Counter;
 import sanrockzz.gradledemo.dto.Employee;
+
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.concurrent.atomic.*;
+import java.util.concurrent.locks.*;
 
 /**
  * Java Source ConcurrentTest.java created on Mar 20, 2019
@@ -133,6 +124,7 @@ public class ConcurrentTest {
                 log.info("{} started", Thread.currentThread().getName());
                 TimeUnit.SECONDS.sleep(2);
                 log.info("{} done", Thread.currentThread().getName());
+
             } catch (final InterruptedException e) {
                 e.printStackTrace();
             }
@@ -143,6 +135,7 @@ public class ConcurrentTest {
                 log.info("{} started", Thread.currentThread().getName());
                 TimeUnit.SECONDS.sleep(2);
                 log.info("{} done", Thread.currentThread().getName());
+
             } catch (final InterruptedException e) {
                 e.printStackTrace();
             }
@@ -153,6 +146,7 @@ public class ConcurrentTest {
                 log.info("{} started", Thread.currentThread().getName());
                 TimeUnit.SECONDS.sleep(3);
                 log.info("{} done", Thread.currentThread().getName());
+
             } catch (final InterruptedException e) {
                 e.printStackTrace();
             }

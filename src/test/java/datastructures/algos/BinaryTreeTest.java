@@ -4,20 +4,17 @@
 
 package datastructures.algos;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
-
+import org.junit.Ignore;
 import org.junit.Test;
+
+import java.util.*;
 
 /**
  * Source SamplePractice.java created on Jan 22, 2018
  *
- *
  * @author : Sanjeev Saxena
- * @email : sanrocks123@gmail.com
  * @version : 1.0
+ * @email : sanrocks123@gmail.com
  */
 
 public class BinaryTreeTest {
@@ -84,6 +81,7 @@ public class BinaryTreeTest {
         }
     }
 
+    @Ignore
     @Test
     public void testLeftView() {
 
@@ -202,8 +200,7 @@ public class BinaryTreeTest {
                 if (currentNode.right != null) {
                     nextLevelNodes.add(currentNode.right);
                 }
-            }
-            else {
+            } else {
                 if (currentNode.right != null) {
                     nextLevelNodes.add(currentNode.right);
                 }
