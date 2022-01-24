@@ -2,7 +2,7 @@
  * Copyright (c) @Sanjeev Saxena 2017. All Rights Reserved.
  */
 
-package java.programming;
+package general.programming;
 
 import java.util.ArrayList;
 import java.util.List;
