@@ -38,8 +38,27 @@
 		<appender-ref ref="file" />
 	</logger>
 
-
 	<logger name="sanrockzz" level="debug" additivity="false">
+		<appender-ref ref="STDOUT" />
+		<appender-ref ref="file" />
+	</logger>
+
+	<logger name="datastructures" level="debug" additivity="false">
+		<appender-ref ref="STDOUT" />
+		<appender-ref ref="file" />
+	</logger>
+
+	<logger name="designpatterns" level="debug" additivity="false">
+		<appender-ref ref="STDOUT" />
+		<appender-ref ref="file" />
+	</logger>
+
+	<logger name="programming" level="debug" additivity="false">
+		<appender-ref ref="STDOUT" />
+		<appender-ref ref="file" />
+	</logger>
+
+	<logger name="general" level="debug" additivity="false">
 		<appender-ref ref="STDOUT" />
 		<appender-ref ref="file" />
 	</logger>

@@ -1,16 +1,20 @@
 package datastructures.algos;
 
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Java Source LinkedListTest.java created on Jun 3, 2021
  *
  * @author : Sanjeev Saxena
- * @email : sanrocks123@gmail.com
  * @version : 1.0
+ * @email : sanrocks123@gmail.com
  */
 
 public class LinkedListTest {
+
+    private final Logger log = LoggerFactory.getLogger(getClass());
 
     private class Node {
         private final int data;
@@ -21,15 +25,22 @@ public class LinkedListTest {
             this.next = next;
         }
 
-        public void printReverseList() {
+        public void printReverseList(Node node) {
 
+            if (node == null)
+                return;
+            else
+                printReverseList(node.next);
+            log.info("[{}]", node.data);
+            System.out.print(node.data);
         }
 
     }
 
     @Test
     public void testReverseList() {
-
+        Node head = new Node(1, new Node(2, new Node(3, new Node(4, null))));
+        head.printReverseList(head);
     }
 
 }

@@ -2,31 +2,26 @@
  * Copyright (c) @Sanjeev Saxena 2017. All Rights Reserved.
  */
 
-package java.programming;
-
-import java.util.concurrent.ArrayBlockingQueue;
-import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.PriorityBlockingQueue;
+package general.programming;
 
 import org.junit.Assert;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import sanrockzz.dto.ExtendedImmutableClass;
 import sanrockzz.dto.ImmutableClass;
 import sanrockzz.dto.OddEvenCounter;
 import sanrockzz.gradledemo.dto.Counter;
 import sanrockzz.gradledemo.dto.Employee;
 
+import java.util.concurrent.*;
+
 /**
  * Java Source GeneralTest.java created on Apr 17, 2019
  *
  * @author : Sanjeev Saxena
- * @email : sanrocks123@gmail.com
  * @version : 1.0
+ * @email : sanrocks123@gmail.com
  */
 
 public class GeneralTest {
@@ -46,8 +41,7 @@ public class GeneralTest {
 
         try {
             System.out.println(Integer.valueOf("A".charAt(0)));
-        }
-        finally {
+        } finally {
             System.out.println("finally");
         }
     }
@@ -85,8 +79,7 @@ public class GeneralTest {
     public void testErrors() {
         try {
             throw new Error("");
-        }
-        catch (final Error err) {
+        } catch (final Error err) {
             log.info("Error", err);
         }
         log.info("Good to go after Error");
@@ -218,11 +211,9 @@ public class GeneralTest {
     private int hello() {
         try {
             return 0;
-        }
-        catch (final Exception ex) {
+        } catch (final Exception ex) {
             System.out.println("this is catch");
-        }
-        finally {
+        } finally {
             return 1;
         }
     }
