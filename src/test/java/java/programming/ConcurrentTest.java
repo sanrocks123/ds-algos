@@ -2,7 +2,7 @@
  * Copyright (c) @Sanjeev Saxena 2017. All Rights Reserved.
  */
 
-package general.programming;
+package java.programming;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -146,7 +146,7 @@ public class ConcurrentTest {
         final Thread t2 = new Thread(() -> {
             try {
                 log.info("{} started", Thread.currentThread().getName());
-                TimeUnit.SECONDS.sleep(2);
+                TimeUnit.SECONDS.sleep(3);
                 log.info("{} done", Thread.currentThread().getName());
             }
             catch (final InterruptedException e) {
@@ -157,7 +157,7 @@ public class ConcurrentTest {
         final Thread t3 = new Thread(() -> {
             try {
                 log.info("{} started", Thread.currentThread().getName());
-                TimeUnit.SECONDS.sleep(3);
+                TimeUnit.SECONDS.sleep(4);
                 log.info("{} done", Thread.currentThread().getName());
             }
             catch (final InterruptedException e) {

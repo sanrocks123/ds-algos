@@ -16,6 +16,24 @@ import java.util.*;
 
 public class GreedyTest {
 
+
+    @Test
+    public void testFindmaximumMeetings() {
+
+        int s[] = {1, 3, 0, 5, 8, 5};
+        int f[] = {2, 4, 6, 7, 9, 9};
+
+        System.out.printf("[%s,%s]\n", s[0], f[0]);
+
+        for (int i = 1, j = 0; i < s.length; i++) {
+            if (s[i] >= f[j]) {
+                j = i;
+                System.out.printf("[%s,%s]\n", s[i], f[j]);
+            }
+        }
+    }
+
+
     /**
      * int[] start_times = {10, 11, 13, 12, 12, 13};
      * <p>

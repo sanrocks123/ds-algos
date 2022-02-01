@@ -2,7 +2,7 @@
  * Copyright (c) @Sanjeev Saxena 2017. All Rights Reserved.
  */
 
-package general.programming;
+package java.programming;
 
 import org.junit.Assert;
 import org.junit.Test;
