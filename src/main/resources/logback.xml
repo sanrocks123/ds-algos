@@ -58,9 +58,4 @@
 		<appender-ref ref="file" />
 	</logger>
 
-	<logger name="java" level="debug" additivity="false">
-		<appender-ref ref="STDOUT" />
-		<appender-ref ref="file" />
-	</logger>
-
 </configuration>
