@@ -25,8 +25,8 @@ import sanrockzz.gradledemo.dto.Employee;
  * Java Source GeneralTest.java created on Apr 17, 2019
  *
  * @author : Sanjeev Saxena
- * @email : sanrocks123@gmail.com
  * @version : 1.0
+ * @email : sanrocks123@gmail.com
  */
 
 public class GeneralTest {
@@ -46,8 +46,7 @@ public class GeneralTest {
 
         try {
             System.out.println(Integer.valueOf("A".charAt(0)));
-        }
-        finally {
+        } finally {
             System.out.println("finally");
         }
     }
@@ -85,8 +84,7 @@ public class GeneralTest {
     public void testErrors() {
         try {
             throw new Error("");
-        }
-        catch (final Error err) {
+        } catch (final Error err) {
             log.info("Error", err);
         }
         log.info("Good to go after Error");
@@ -99,6 +97,26 @@ public class GeneralTest {
         System.out.printf("fact: %d ", factorial(n));
 
     }
+
+    @Test
+    public void testFindSumOfAll() {
+
+        int hammer, saw, house = 0;
+
+        int hammer_saw = 10;
+        int house_saw = 20;
+        int house_hammer = 24;
+
+        // lets assume
+        hammer = hammer_saw / 2;
+        saw = hammer_saw - hammer;
+        house = house_saw - saw;
+
+        //while(hammer + )
+
+
+    }
+
 
     @Test
     public void testImmutable() {
@@ -218,13 +236,12 @@ public class GeneralTest {
     private int hello() {
         try {
             return 0;
-        }
-        catch (final Exception ex) {
+        } catch (final Exception ex) {
             System.out.println("this is catch");
-        }
-        finally {
+        } finally {
             return 1;
         }
     }
+
 
 }

@@ -30,8 +30,8 @@ configurations {
 
 dependencies {
 
-    implementation "org.springframework.boot:spring-boot-starter-web:1.5.8.RELEASE"
-    implementation "org.json:json:20171018"
+    implementation 'org.springframework.boot:spring-boot-starter-web:2.7.0'
+    implementation 'org.json:json:20220320'
 
     implementation "com.fasterxml.jackson.core:jackson-databind:2.9.3"
     implementation "com.fasterxml.jackson.core:jackson-annotations:2.9.3"
@@ -46,9 +46,12 @@ dependencies {
 
     implementation "org.springframework.kafka:spring-kafka:1.0.2.RELEASE"
 
-    testImplementation "junit:junit:4.12"
-    testImplementation "org.jmockit:jmockit:1.9"
-    testImplementation "org.springframework.boot:spring-boot-starter-test:1.5.8.RELEASE"
+    testImplementation 'junit:junit:4.13.2'
+    testImplementation 'org.jmockit:jmockit:1.49'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test:2.7.0'
+
+    testCompileOnly "org.projectlombok:lombok:$lombok"
+    testAnnotationProcessor "org.projectlombok:lombok:$lombok"
 
 }
 
@@ -80,5 +83,12 @@ tasks.named('build') {
             from "$buildDir/libs"
             into "$buildDir/lib"
         }
+    }
+}
+
+test {
+    useJUnitPlatform()
+    testLogging {
+        events "passed", "skipped", "failed"
     }
 }

@@ -136,6 +136,5 @@ public class StringTest {
      */
     private void hello(String str) {
         log.debug("str: {}", str);
-
     }
 }

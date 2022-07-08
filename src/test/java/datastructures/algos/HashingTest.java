@@ -7,7 +7,6 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
-
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,8 +15,8 @@ import org.slf4j.LoggerFactory;
  * Java Source HashingProblemTest.java created on Jul 22, 2021
  *
  * @author : Sanjeev Saxena
- * @email : sanrocks123@gmail.com
  * @version : 1.0
+ * @email : sanrocks123@gmail.com
  */
 
 public class HashingTest {
@@ -27,7 +26,7 @@ public class HashingTest {
     @Test
     public void testDistinctElementInEvryWindowOfSizeK() {
 
-        final int arr[] = { 1, 2, 1, 3, 4, 2, 3 };
+        final int arr[] = {1, 2, 1, 3, 4, 2, 3};
         System.out.println("i/p list : " + Arrays.stream(arr).boxed().collect(Collectors.toList()));
 
         final Map<Integer, Integer> hm = new HashMap<>();
@@ -46,8 +45,7 @@ public class HashingTest {
 
             if (hm.get(arr[prev]) == 1) {
                 hm.remove(arr[prev]);
-            }
-            else {
+            } else {
                 hm.put(arr[prev], hm.get(arr[prev]) - 1);
             }
 
@@ -61,7 +59,7 @@ public class HashingTest {
     @Test
     public void testHashMap() {
 
-        final int[] arr = { 1, 1, 2, 3, 2 };
+        final int[] arr = {1, 1, 2, 3, 2};
 
         final Map<Integer, Integer> map = new HashMap<>();
 
@@ -86,7 +84,7 @@ public class HashingTest {
     @Test
     public void testLongestConsecutiveSubsequence() {
         final Set<Integer> hash = new HashSet<>();
-        final int arr[] = { 1, 9, 3, 10, 4, 20, 2 };
+        final int arr[] = {1, 9, 3, 10, 4, 20, 2};
         for (final int a : arr) {
             hash.add(a);
         }
@@ -138,7 +136,7 @@ public class HashingTest {
     @Test
     public void testNumberOfWays() {
 
-        final int[] arr = { 1, 2, 3, 4, 3 };
+        final int[] arr = {1, 2, 3, 4, 3};
         final int sum = 6;
 
         final Map<Integer, Integer> map = new HashMap<>();
@@ -162,8 +160,7 @@ public class HashingTest {
 
                 if (newValue == 0) {
                     map.remove(element);
-                }
-                else {
+                } else {
                     map.put(temp, newValue);
                 }
                 final String s = String.format("%s%s", element, temp);

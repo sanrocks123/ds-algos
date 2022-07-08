@@ -1,5 +1,7 @@
 package datastructures.algos;
 
+import java.util.Arrays;
+import java.util.List;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -42,5 +44,17 @@ public class LinkedListTest {
         Node head = new Node(1, new Node(2, new Node(3, new Node(4, null))));
         head.printReverseList(head);
     }
+
+    @Test
+    public void testListOperations(){
+        List<String> names = Arrays.asList("a","b","c");
+        System.out.println(names);
+
+        names.add(0,"d");
+
+        System.out.print(names);
+
+    }
+
 
 }
