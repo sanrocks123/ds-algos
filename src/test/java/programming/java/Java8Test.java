@@ -10,24 +10,21 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
-
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import com.google.common.base.Optional;
-
 import sanrockzz.gradledemo.dto.Employee;
 
 /**
  * Java Source Java8Test.java created on Dec 19, 2019
  *
  * @author : Sanjeev Saxena
- * @email : sanrocks123@gmail.com
  * @version : 1.0
+ * @email : sanrocks123@gmail.com
  */
 
 public class Java8Test {
@@ -41,7 +38,8 @@ public class Java8Test {
         people.put("Mary", Arrays.asList("555-2243", "555-5264"));
         people.put("Steve", Arrays.asList("555-6654", "555-3242"));
 
-        final List<String> phones = people.values().stream().flatMap(m -> m.stream()).collect(Collectors.toList());
+        final List<String> phones = people.values().stream().flatMap(m -> m.stream())
+            .collect(Collectors.toList());
         log.info("phones {}", phones);
     }
 
@@ -55,8 +53,9 @@ public class Java8Test {
 
         final Predicate<Employee> filter = (e) -> e.getEmpId() > 0;
 
-        final long count = employees.stream().filter(filter).peek(e -> log.info("e: {}", e.getName()))
-                .mapToInt(Employee::getEmpId).count();
+        final long count = employees.stream().filter(filter)
+            .peek(e -> log.info("e: {}", e.getName()))
+            .mapToInt(Employee::getEmpId).count();
 
         log.info("count: {}, cc: {}", count, employees.size());
 
@@ -74,7 +73,7 @@ public class Java8Test {
         s1 = "";
         sOpt = Optional.of(s1);
 
-        log.info("s1, after null reference: {}", sOpt.orNull());
+        log.info("s1, after null reference: {}", sOpt.orElse(""));
     }
 
     @Test
@@ -105,7 +104,7 @@ public class Java8Test {
 
         log.info("Numbers: {}", square);
 
-        final int sum = Arrays.stream(new int[] { 1, 2, 3 }).filter(i -> i >= 2).map(i -> i * 3).sum();
+        final int sum = Arrays.stream(new int[]{1, 2, 3}).filter(i -> i >= 2).map(i -> i * 3).sum();
         log.info("sum {}", sum);
     }
 
@@ -119,8 +118,9 @@ public class Java8Test {
 
         final Predicate<Employee> filter = (e) -> e.getEmpId() > 0;
 
-        final long count = employees.stream().filter(filter).peek(e -> log.info("e: {}", e.getName()))
-                .mapToInt(e -> e.getEmpId()).count();
+        final long count = employees.stream().filter(filter)
+            .peek(e -> log.info("e: {}", e.getName()))
+            .mapToInt(e -> e.getEmpId()).count();
 
         log.info("count: {}, cc: {}", count, employees.size());
 

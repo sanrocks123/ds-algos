@@ -25,6 +25,7 @@
 		</encoder>
 	</appender>
 
+
 	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
 		<layout class="ch.qos.logback.classic.PatternLayout">
 			<Pattern>
@@ -57,5 +58,7 @@
 		<appender-ref ref="STDOUT" />
 		<appender-ref ref="file" />
 	</logger>
+
+	<logger name="ch.qos.logback" level="ERROR" />
 
 </configuration>

@@ -130,7 +130,7 @@ public class ArraysTest {
     // Output: 4
 
     @Test
-    public void testLargestSumContugousSubarray() {
+    public void testLargestSumContigousSubarray() {
 
         final int a[] = new int[] { -2, -3, 4, -1, -2, 1, 5, -3 };
 

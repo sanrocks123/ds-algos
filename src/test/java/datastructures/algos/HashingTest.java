@@ -1,11 +1,14 @@
 package datastructures.algos;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeMap;
 import java.util.stream.Collectors;
 import org.junit.Test;
 import org.slf4j.Logger;
@@ -169,9 +172,124 @@ public class HashingTest {
                 System.out.printf("pair found: %s\n", s);
             }
         }
-
         System.out.println(pairs);
+    }
+
+    /**
+     * Input: N = 8 A[] = {15,-2,2,-8,1,7,10,23}
+     * <p>
+     * Output: 5
+     * <p>
+     * Explanation: The largest subarray with sum 0 will be -2 2 -8 1 7.
+     */
+    @Test
+    public void testLargestSubarrayWithZeroSum() {
+        int arr[] = {15, -2, 2, -8, 1, 7, 10, 23};
+
+        Map<Integer, Integer> map = new HashMap<>();
+        int sum = 0;
+        int prevSumFoundIndex = 0;
+
+        for (int i = 0; i < arr.length; i++) {
+
+            sum += arr[i];
+
+            if (map.containsKey(sum)) {
+                prevSumFoundIndex = map.get(sum);
+                continue;
+            }
+            map.put(sum, i);
+        }
+    }
+
+    /**
+     * Example: Input:  5 5 4 6 4    9 9 9 2 5
+     * <p>
+     * Output: 4 4 5 5 6    9 9 9 2 5
+     * <p>
+     * Explanation: Testcase1: The highest frequency here is 2. Both 5 and 4 have that frequency.
+     * Now since the frequencies are same then smaller element comes first. So 4 4 comes first then
+     * comes 5 5. Finally comes 6. The output is 4 4 5 5 6.
+     * <p>
+     * Testcase2: The highest frequency here is 3. The element 9 has the highest frequency. So 9 9 9
+     * comes first. Now both 2 and 5 have same frequency. So we print smaller element first. The
+     * output is 9 9 9 2 5.
+     */
+    @Test
+    public void testSortArrayByFrequency() {
+        Integer arr[] = {9, 9, 9, 2, 5};
+
+        // done just for testing arrays sort operations
+        Arrays.sort(arr, (x, y) -> y - x);
+        Arrays.stream(arr).forEach(e -> log.info("{}", e));
+
+        // find element -> frequency count
+        Map<Integer, Integer> element2frequencyMap = new HashMap<>();
+        Arrays.stream(arr).forEach(e -> {
+            element2frequencyMap.computeIfPresent(e, (k, v) -> v + 1);
+            element2frequencyMap.computeIfAbsent(e, v -> 1);
+        });
+
+        log.info("frequencyMap: {}", element2frequencyMap);
+
+        // create map of (TreeMap<DESC>)frequency -> elements (sorted elements)
+        Map<Integer, List<Integer>> frequency2ElementMap = new TreeMap<>((x, y) -> y - x);
+
+        element2frequencyMap.keySet().stream().forEach(key -> {
+            int frequency = element2frequencyMap.get(key);
+            frequency2ElementMap.computeIfPresent(frequency, (k, v) -> {
+                v.add(key);
+                return v;
+            });
+
+            frequency2ElementMap.computeIfAbsent(frequency, v -> {
+                List<Integer> list = new ArrayList();
+                list.add(key);
+                return list;
+            });
+        });
+
+        // print tree map
+        log.info("frequency2ElementMap: {}", frequency2ElementMap);
+        List<Integer> output = new ArrayList<>();
+        frequency2ElementMap.keySet().stream().forEach(key -> {
+            output.addAll(frequency2ElementMap.get(key));
+        });
+
+        log.info("output: {}", output);
+
+    }
+
+
+    /**
+     * Given two lists V1 and V2 of sizes n and m respectively. Return the list of elements common
+     * to both the lists and return the list in sorted order. Duplicates may be there in the output
+     * list.
+     * <p>
+     * Example:
+     * <p>
+     * Input: n = 5 v1[] = {3, 4, 2, 2, 4} m = 4 v2[] = {3, 2, 2, 7} Output: 2 2 3 Explanation: The
+     * common elements in sorted order are {2 2 3}
+     */
+    @Test
+    public void testFindCommonElements() {
+        // TODO
+    }
+
+
+    /**
+     * Given an array of integers and another number. Find all the unique quadruple from the given
+     * array that sums up to the given number.
+     * <p>
+     * Example 1:
+     * <p>
+     * Input: N = 5, K = 3 A[] = {0,0,2,1,1} Output: 0 0 1 2 $ Explanation: Sum of 0, 0, 1, 2 is
+     * equal to K.
+     */
+    @Test
+    public void testFindAllFourSumNumbers() {
 
     }
 
 }
+
