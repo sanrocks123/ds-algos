@@ -36,7 +36,7 @@ import sanrockzz.gradledemo.service.TaggingService;
 
 @Slf4j
 @RestController
-@RequestMapping(value = "/v1", produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(value = "/v1/tag", produces = MediaType.APPLICATION_JSON_VALUE)
 public class TaggingController {
 
     @Autowired
@@ -51,7 +51,7 @@ public class TaggingController {
         @ApiResponse(responseCode = "201", description = "New tag resource created", content = {
             @Content(mediaType = "application/json", schema = @Schema(implementation = Tag.class))}),
         @ApiResponse(responseCode = "400", description = "something is wrong tag request payload", content = @Content)})
-    @PostMapping("/tag")
+    @PostMapping
     public ResponseEntity<Tag> create(@RequestBody Tag tag) {
         return new ResponseEntity<Tag>(tagService.create(tag), HttpStatus.CREATED);
     }

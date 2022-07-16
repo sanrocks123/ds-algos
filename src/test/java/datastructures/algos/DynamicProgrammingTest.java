@@ -71,7 +71,7 @@ public class DynamicProgrammingTest {
      */
     @Test
     public void testFindMaxLengthChain() {
-
+        // TODO
     }
 
     @Test
@@ -83,8 +83,7 @@ public class DynamicProgrammingTest {
 
     private int minCoins(int coins[], int V) {
 
-        log.info("v={}, coins: {}", V,
-            Arrays.stream(coins).boxed().collect(Collectors.toList()));
+        log.info("v={}, coins: {}", V, Arrays.stream(coins).boxed().collect(Collectors.toList()));
 
         // base case
         if (V == 0) {
